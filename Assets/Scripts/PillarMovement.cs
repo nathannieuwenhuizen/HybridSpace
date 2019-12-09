@@ -20,6 +20,12 @@ public class PillarMovement : MonoBehaviour
 
     private Vector3 originPos;
 
+    [SerializeField]
+    private Transform pillarTransform;
+
+    [SerializeField]
+    private Transform playerTransform;
+
     private void Start()
     {
         originPos = transform.position;
@@ -58,6 +64,14 @@ public class PillarMovement : MonoBehaviour
 
     public void Rotate()
     {
+        Vector3 dist = playerTransform.position - transform.position;
+        dist.y = 0;
+        transform.Translate(-dist);
+        pillarTransform.Translate(dist);
+
+        originPos = transform.position;
+
+
         StartCoroutine(Rotating());
     }
     public IEnumerator Rotating()

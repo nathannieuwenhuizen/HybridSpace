@@ -469,9 +469,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 2
-  rotatedAngle: -15
+  rotatedAngle: 15
   moveSpeed: 2
   moveDistance: 0.5
+  pillarTransform: {fileID: 576267362}
+  playerTransform: {fileID: 1214590826}
 --- !u!4 &718887654
 Transform:
   m_ObjectHideFlags: 0
@@ -627,6 +629,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+--- !u!4 &1214590826 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 496744, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1188934379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1524430843
 GameObject:
   m_ObjectHideFlags: 0
