@@ -64,10 +64,10 @@ public class PillarMovement : MonoBehaviour
 
     public void Rotate()
     {
-        Vector3 dist = playerTransform.position - transform.position;
-        dist.y = 0;
-        transform.Translate(-dist);
-        pillarTransform.Translate(dist);
+        //Vector3 dist = playerTransform.position - transform.position;
+        //dist.y = 0;
+        //transform.Translate(-dist);
+        //pillarTransform.Translate(dist);
 
         originPos = transform.position;
 
