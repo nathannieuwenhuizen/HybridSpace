@@ -5,20 +5,23 @@ using UnityEngine;
 public class PillarMovement : MonoBehaviour
 {
     [Header("Rotation")]
+    [SerializeField]
     private bool rotated = false;
     [SerializeField]
     private float rotateSpeed = 0.1f;
     [SerializeField]
     private float rotatedAngle = 5f;
 
-    [Header("Rotation")]
+    [Header("Movement")]
+    [SerializeField]
     private bool moved = false;
     [SerializeField]
     private float moveSpeed = 0.1f;
     [SerializeField]
-    private float moveDistance = 0.5f;
+    private Vector3 movedDistance;
 
     private Vector3 originPos;
+    private Vector3 originAngle;
 
     [SerializeField]
     private Transform pillarTransform;
@@ -29,15 +32,16 @@ public class PillarMovement : MonoBehaviour
     private void Start()
     {
         originPos = transform.position;
+        originAngle = transform.rotation.eulerAngles;
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M) && !moved)
+        if (Input.GetKeyDown(KeyCode.M))
         {
             Move();
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !rotated)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Rotate();
         }
@@ -45,14 +49,23 @@ public class PillarMovement : MonoBehaviour
 
     public void Move()
     {
+        //StopAllCoroutines();
+        moved = !moved;
         StartCoroutine(Moving());
     }
     public IEnumerator Moving()
     {
-        Vector3 currentPos = originPos;
+        Vector3 currentPos = transform.position;
         Vector3 destPos = originPos;
-        destPos.z += moveDistance;
-        while(Mathf.Abs(originPos.z - destPos.z) > 0.01f)
+
+        if (moved)
+        {
+            destPos.z += movedDistance.z;
+            destPos.x += movedDistance.x;
+        }
+
+
+        while ( Vector3.Distance(currentPos, destPos) > 0.01f)
         {
             currentPos = Vector3.Lerp(currentPos, destPos, Time.deltaTime * moveSpeed);
             transform.position = currentPos;
@@ -68,8 +81,8 @@ public class PillarMovement : MonoBehaviour
         //dist.y = 0;
         //transform.Translate(-dist);
         //pillarTransform.Translate(dist);
-
-        originPos = transform.position;
+        rotated = !rotated;
+        //originPos = transform.position;
 
 
         StartCoroutine(Rotating());
@@ -77,9 +90,14 @@ public class PillarMovement : MonoBehaviour
     public IEnumerator Rotating()
     {
         Vector3 currentAngle = transform.rotation.eulerAngles;
-        Vector3 destAngle = transform.rotation.eulerAngles;
-        destAngle.y += rotatedAngle;
-        while (Mathf.Abs(originPos.y - destAngle.y) > 0.01f)
+        Vector3 destAngle = originAngle;
+
+        if (rotated)
+        {
+            destAngle.y += rotatedAngle;
+        }
+
+        while (Mathf.Abs(currentAngle.y - destAngle.y) > 0.01f)
         {
             currentAngle = Vector3.Lerp(currentAngle, destAngle, Time.deltaTime * moveSpeed);
             transform.rotation = Quaternion.Euler(currentAngle);

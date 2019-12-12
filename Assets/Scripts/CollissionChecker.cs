@@ -32,7 +32,7 @@ public class CollissionChecker : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("collission! " + other.name);
+        Debug.Log("collission! " + other.name);
         //Debug.Log(Camera.main.name);
         if (other.tag == "MainCamera")
         {
