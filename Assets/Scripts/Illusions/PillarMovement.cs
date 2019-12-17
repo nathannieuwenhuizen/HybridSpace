@@ -6,7 +6,7 @@ public class PillarMovement : MonoBehaviour
 {
     [Header("Rotation")]
     [SerializeField]
-    private bool rotated = false;
+    public bool rotated = false;
     [SerializeField]
     private float rotateSpeed = 0.1f;
     [SerializeField]
@@ -14,7 +14,7 @@ public class PillarMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField]
-    private bool moved = false;
+    public bool moved = false;
     [SerializeField]
     private float moveSpeed = 0.1f;
     [SerializeField]
