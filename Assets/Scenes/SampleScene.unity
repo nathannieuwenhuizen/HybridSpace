@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.0031596224, g: 0.0027381696, b: 0.0033542868, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031023081, g: 0.002729387, b: 0.0033033516, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -168,7 +168,7 @@ MonoBehaviour:
   insidePillarParticles: {fileID: 7374561140334066144}
   insideMaterialSkybox: {fileID: 2100000, guid: 860a66ca4259b384f9ec01b687f71c3c,
     type: 2}
-  milkywayRotationSpeed: 0.05
+  milkywayRotationSpeed: 0.2
 --- !u!1 &560193889
 GameObject:
   m_ObjectHideFlags: 0
@@ -5579,11 +5579,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.77
+      value: -4.19
       objectReference: {fileID: 0}
     - target: {fileID: 447954, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5692,6 +5692,10 @@ PrefabInstance:
     - target: {fileID: 11465950, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13533284, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
+      propertyPath: m_Radius
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc06161b6d97feb419f45f03b62e14b9, type: 3}
