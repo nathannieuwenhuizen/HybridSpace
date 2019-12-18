@@ -60,8 +60,8 @@ public class PillarMovement : MonoBehaviour
 
         if (moved)
         {
-            destPos.z += movedDistance.z;
-            destPos.x += movedDistance.x;
+            destPos += transform.right * movedDistance.z;
+            destPos += transform.forward * movedDistance.x;
         }
 
 
